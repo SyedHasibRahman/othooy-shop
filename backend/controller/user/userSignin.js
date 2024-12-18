@@ -30,6 +30,11 @@ async function userSignInController(req, res) {
             }
             const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: 31536000 });
 
+            const tokenOption_local = {
+                httpOnly: true,
+                secure: true
+            }
+
             const tokenOption = {
                 httpOnly: true,
                 secure: process.env.NODE_ENV === 'production',  // Set to true in production, false in development
@@ -37,13 +42,14 @@ async function userSignInController(req, res) {
                 domain: '.othooy.com',  // Set the domain to your main domain or root domain
             }
 
-
-            res.cookie("token", token, tokenOption).status(200).json({
-                message: "Login successfully",
-                data: token,
-                success: true,
-                error: false
-            })
+            res.cookie("token", token,
+                process.env.NODE_ENV === 'production' ?
+                    tokenOption : tokenOption_local).status(200).json({
+                        message: "Login successfully",
+                        data: token,
+                        success: true,
+                        error: false
+                    })
 
         } else {
             throw new Error("Please check Password")
