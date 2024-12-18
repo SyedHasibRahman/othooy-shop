@@ -41,8 +41,9 @@ const Header = () => {
     setShowMenu(!showMenu);
   };
 
-  const user = useSelector((state) => state?.user?.user);
-  console.log(user)
+  // const user = useSelector((state) => state?.user?.user);
+  const { user } = useSelector((state) => state?.user);
+  console.log('user', user)
   const dispatch = useDispatch();
   const [menuDisplay, setMenuDisplay] = useState(false);
   const context = useContext(Context);

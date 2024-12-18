@@ -39,7 +39,9 @@ async function userSignInController(req, res) {
                 message: "Login successfully",
                 data: token,
                 success: true,
-                error: false
+                error: false,
+                httpOnly: true,
+                sameSite: "None", // Enables cross-origin cookies
             })
 
         } else {
