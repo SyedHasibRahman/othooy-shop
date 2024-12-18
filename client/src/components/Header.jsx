@@ -41,9 +41,9 @@ const Header = () => {
     setShowMenu(!showMenu);
   };
 
-  // const user = useSelector((state) => state?.user?.user);
-  const { user } = useSelector((state) => state?.user);
-  console.log('user', user)
+  const { user } = useSelector((state) => state.user);
+
+  console.log("Redux user in Header:", user);
   const dispatch = useDispatch();
   const [menuDisplay, setMenuDisplay] = useState(false);
   const context = useContext(Context);

@@ -34,7 +34,7 @@ function App() {
 
     const dataApi = await dataResponse.json();
 
-    // console.log("data-user", dataResponse);
+    console.log("App.JSX-dataApi", dataApi);
 
     if (dataApi.success) {
       dispatch(setUserDetails(dataApi.data));
@@ -64,7 +64,7 @@ function App() {
   return (
     <>
       <Context.Provider
-        value={{ fetchUserDetails, cartProductCount, fetchUserAddToCart }}
+        value={ { fetchUserDetails, cartProductCount, fetchUserAddToCart } }
       >
         <ToastContainer />
         <Header />
