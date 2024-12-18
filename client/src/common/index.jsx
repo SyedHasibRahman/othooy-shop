@@ -1,5 +1,5 @@
-const backendDomin = "http://localhost:8080";
-// const backendDomin = "https://apishop.othooy.com";
+// const backendDomin = "http://localhost:8080";
+const backendDomin = "https://apishop.othooy.com";
 
 const SummaryApi = {
   signUP: {
