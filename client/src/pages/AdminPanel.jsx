@@ -17,38 +17,44 @@ const AdminPanel = () => {
 
   return (
     <div className="min-h-[calc(100vh-120px)] md:flex ">
-      {/* <div className="min-h-[calc(100vh-120px)] md:flex hidden"> */}
+      {/* <div className="min-h-[calc(100vh-120px)] md:flex hidden"> */ }
       <aside className="bg-white min-h-full  w-full  max-w-60 customShadow pt-12 dark:bg-black dark:text-white ">
         <div className="h-32  flex justify-center items-center flex-col  ">
           <div className="text-5xl cursor-pointer relative flex justify-center">
-            {user?.profilePic ? (
+            { user?.profilePic ? (
               <img
-                src={user?.profilePic}
+                src={ user?.profilePic }
                 className="w-20 h-20 rounded-full"
-                alt={user?.name}
+                alt={ user?.name }
               />
             ) : (
               <FaRegCircleUser />
-            )}
+            ) }
           </div>
-          <p className="capitalize text-lg font-semibold">{user?.name}</p>
-          <p className="text-sm">{user?.role}</p>
+          <p className="capitalize text-lg font-semibold">{ user?.name }</p>
+          <p className="text-sm">{ user?.role }</p>
         </div>
 
-        {/***navigation */}
+        {/***navigation */ }
         <div>
           <nav className="grid p-4">
             <Link
-              to={"all-users"}
+              to={ "all-users" }
               className="px-2 py-1 hover:bg-slate-100 dark:bg-black dark:text-white dark:hover:bg-gray-900"
             >
               All Users
             </Link>
             <Link
-              to={"all-products"}
+              to={ "all-products" }
               className="px-2 py-1 hover:bg-slate-100 dark:bg-black dark:text-white dark:hover:bg-gray-900"
             >
               All product
+            </Link>
+            <Link
+              to={ "all-orders" }
+              className="px-2 py-1 hover:bg-slate-100 dark:bg-black dark:text-white dark:hover:bg-gray-900"
+            >
+              All Orders
             </Link>
           </nav>
         </div>

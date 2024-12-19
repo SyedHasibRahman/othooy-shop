@@ -2,14 +2,23 @@ const addToCartModel = require("../../models/cartProduct")
 
 const addToCartController = async (req, res) => {
     try {
-        const { productId } = req?.body
-        const currentUser = req.userId
+        const { productId } = req?.body;
+        const currentUser = req.userId;
+        // console.log(currentUser)
+        const userCartItems = await addToCartModel.find({ userId: currentUser });
 
-        const isProductAvailable = await addToCartModel.findOne({ productId })
+        // console.log('All Cart Items for the User:', userCartItems);
 
-        console.log("isProductAvailabl   ", isProductAvailable)
+        // Step 2: Find a specific document by productId for the current user
+        const specificCartItem = await addToCartModel.findOne({ userId: currentUser, productId });
 
-        if (isProductAvailable) {
+        // console.log('Specific Cart Item:', specificCartItem);
+
+        // const isProductAvailable = await addToCartModel.findOne({ productId })
+
+        // console.log("isProductAvailabl   ", isProductAvailable)
+
+        if (specificCartItem) {
             return res.json({
                 message: "Already exits in Add to cart",
                 success: false,

@@ -34,7 +34,7 @@ function App() {
 
     const dataApi = await dataResponse.json();
 
-    console.log("App.JSX-dataApi", dataApi);
+    // console.log("App.JSX-dataApi", dataApi);
 
     if (dataApi.success) {
       dispatch(setUserDetails(dataApi.data));
