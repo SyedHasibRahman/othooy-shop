@@ -8,6 +8,7 @@ async function userSignUpController(req, res) {
 
         const user = await userModel.findOne({ email })
 
+
         // console.log("user", user)
 
         if (user) {
