@@ -30,7 +30,7 @@ export const MenuLinks = [
     id: 3,
     name: "Products",
     link: "/products",
-  },
+  }
 ];
 // menu end
 
@@ -114,13 +114,22 @@ const Header = () => {
                 <li key={ id } className="py-4">
                   <NavLink
                     to={ link }
-                    activeClassName="text-primary border-b-2 border-primary"
+                    activeclassname="text-primary border-b-2 border-primary"
                     className="text-lg font-medium hover:text-primary py-2 transition-colors duration-500"
                   >
                     { name }
                   </NavLink>
                 </li>
               )) }
+              <li className="py-4">
+                <NavLink
+                  to={ 'http://othooy.com/' }
+                  activeclassname="text-primary border-b-2 border-primary"
+                  className="text-lg font-medium hover:text-primary py-2 transition-colors duration-500"
+                >
+                  { 'OTA' }
+                </NavLink>
+              </li>
             </ul>
           </nav>
           <div className="relative  flex justify-center">
