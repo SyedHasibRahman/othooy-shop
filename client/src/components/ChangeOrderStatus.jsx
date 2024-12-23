@@ -11,7 +11,7 @@ const ChangeOrderStatus = ({ role, userId, onClose, callFunc }) => {
 
     const handleOnChangeSelect = (e) => {
         setUserStatus(e.target.value);
-        console.log(e.target.value);
+        // console.log(e.target.value);
     };
 
     const updateUserStatus = async () => {
@@ -35,7 +35,7 @@ const ChangeOrderStatus = ({ role, userId, onClose, callFunc }) => {
             callFunc();
         }
 
-        console.log("status updated", responseData);
+        // console.log("status updated", responseData);
     };
 
     return (

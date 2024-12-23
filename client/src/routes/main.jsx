@@ -15,6 +15,7 @@ import About from "../pages/About";
 import Service from "../pages/Service";
 import Product from "../pages/Product";
 import AllOrders from "../pages/AllOrders";
+import LogoIdeas from "../pages/LogoIdeas.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <Home />,
+      },
+      {
+        path: "/logoideas",
+        element: <LogoIdeas />,
       },
       {
         path: "login",

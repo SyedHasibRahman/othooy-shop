@@ -47,7 +47,7 @@ const AdminEditProduct = ({ onClose, productData, fetchdata }) => {
   };
 
   const handleDeleteProductImage = async (index) => {
-    console.log("image index", index);
+    // console.log("image index", index);
 
     const newProductImage = [...data.productImage];
     newProductImage.splice(index, 1);
@@ -92,7 +92,7 @@ const AdminEditProduct = ({ onClose, productData, fetchdata }) => {
           <h2 className="font-bold text-lg dark:text-black ">Edit Product</h2>
           <div
             className="w-fit ml-auto text-2xl hover:text-red-600 cursor-pointer dark:text-black dark:hover:text-red-700"
-            onClick={onClose}
+            onClick={ onClose }
           >
             <CgClose />
           </div>
@@ -100,7 +100,7 @@ const AdminEditProduct = ({ onClose, productData, fetchdata }) => {
 
         <form
           className="grid p-4 gap-2 overflow-y-scroll h-full pb-5 dark:bg-black dark:text-white"
-          onSubmit={handleSubmit}
+          onSubmit={ handleSubmit }
         >
           <label htmlFor="productName">Product Name :</label>
           <input
@@ -108,8 +108,8 @@ const AdminEditProduct = ({ onClose, productData, fetchdata }) => {
             id="productName"
             placeholder="enter product name"
             name="productName"
-            value={data.productName}
-            onChange={handleOnChange}
+            value={ data.productName }
+            onChange={ handleOnChange }
             className="p-2 bg-slate-100 border rounded dark:bg-black dark:text-white"
             required
           />
@@ -121,9 +121,9 @@ const AdminEditProduct = ({ onClose, productData, fetchdata }) => {
             type="text"
             id="brandName"
             placeholder="enter brand name"
-            value={data.brandName}
+            value={ data.brandName }
             name="brandName"
-            onChange={handleOnChange}
+            onChange={ handleOnChange }
             className="p-2 bg-slate-100 border rounded dark:bg-black dark:text-white"
             required
           />
@@ -133,19 +133,19 @@ const AdminEditProduct = ({ onClose, productData, fetchdata }) => {
           </label>
           <select
             required
-            value={data.category}
+            value={ data.category }
             name="category"
-            onChange={handleOnChange}
+            onChange={ handleOnChange }
             className="p-2 bg-slate-100 border rounded dark:bg-black dark:text-white"
           >
-            <option value={""}>Select Category</option>
-            {productCategory.map((el, index) => {
+            <option value={ "" }>Select Category</option>
+            { productCategory.map((el, index) => {
               return (
-                <option value={el.value} key={el.value + index}>
-                  {el.label}
+                <option value={ el.value } key={ el.value + index }>
+                  { el.label }
                 </option>
               );
-            })}
+            }) }
           </select>
 
           <label htmlFor="productImage" className="mt-3 ">
@@ -162,44 +162,44 @@ const AdminEditProduct = ({ onClose, productData, fetchdata }) => {
                   type="file"
                   id="uploadImageInput"
                   className="hidden"
-                  onChange={handleUploadProduct}
+                  onChange={ handleUploadProduct }
                 />
               </div>
             </div>
           </label>
           <div>
-            {data?.productImage[0] ? (
+            { data?.productImage[0] ? (
               <div className="flex items-center gap-2">
-                {data.productImage.map((el, index) => {
+                { data.productImage.map((el, index) => {
                   return (
-                    <div className="relative group" key={index}>
+                    <div className="relative group" key={ index }>
                       <img
-                        src={el}
-                        alt={el}
-                        width={80}
-                        height={80}
+                        src={ el }
+                        alt={ el }
+                        width={ 80 }
+                        height={ 80 }
                         className="bg-slate-100 border cursor-pointer"
-                        onClick={() => {
+                        onClick={ () => {
                           setOpenFullScreenImage(true);
                           setFullScreenImage(el);
-                        }}
+                        } }
                       />
 
                       <div
                         className="absolute bottom-0 right-0 p-1 text-white bg-red-600 rounded-full hidden group-hover:block cursor-pointer"
-                        onClick={() => handleDeleteProductImage(index)}
+                        onClick={ () => handleDeleteProductImage(index) }
                       >
                         <MdDelete />
                       </div>
                     </div>
                   );
-                })}
+                }) }
               </div>
             ) : (
               <p className="text-red-600 text-xs">
                 *Please upload product image
               </p>
-            )}
+            ) }
           </div>
 
           <label htmlFor="price" className="mt-3">
@@ -209,9 +209,9 @@ const AdminEditProduct = ({ onClose, productData, fetchdata }) => {
             type="number"
             id="price"
             placeholder="enter price"
-            value={data.price}
+            value={ data.price }
             name="price"
-            onChange={handleOnChange}
+            onChange={ handleOnChange }
             className="p-2 bg-slate-100 border rounded dark:bg-black dark:text-white"
             required
           />
@@ -223,9 +223,9 @@ const AdminEditProduct = ({ onClose, productData, fetchdata }) => {
             type="number"
             id="sellingPrice"
             placeholder="enter selling price"
-            value={data.sellingPrice}
+            value={ data.sellingPrice }
             name="sellingPrice"
-            onChange={handleOnChange}
+            onChange={ handleOnChange }
             className="p-2 bg-slate-100 border rounded dark:bg-black dark:text-white"
             required
           />
@@ -236,10 +236,10 @@ const AdminEditProduct = ({ onClose, productData, fetchdata }) => {
           <textarea
             className="h-28 bg-slate-100 border resize-none p-1 dark:bg-black dark:text-white"
             placeholder="enter product description"
-            rows={3}
-            onChange={handleOnChange}
+            rows={ 3 }
+            onChange={ handleOnChange }
             name="description"
-            value={data.description}
+            value={ data.description }
           ></textarea>
 
           <button className="px-3 py-2 bg-red-600 text-white mb-10 hover:bg-red-700">
@@ -248,12 +248,12 @@ const AdminEditProduct = ({ onClose, productData, fetchdata }) => {
         </form>
       </div>
 
-      {openFullScreenImage && (
+      { openFullScreenImage && (
         <DisplayImage
-          onClose={() => setOpenFullScreenImage(false)}
-          imgUrl={fullScreenImage}
+          onClose={ () => setOpenFullScreenImage(false) }
+          imgUrl={ fullScreenImage }
         />
-      )}
+      ) }
     </div>
   );
 };

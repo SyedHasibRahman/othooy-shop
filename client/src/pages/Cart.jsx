@@ -20,7 +20,7 @@ const Cart = () => {
     });
 
     const responseData = await response.json();
-    console.log(responseData)
+    // console.log(responseData)
 
     if (responseData.success) {
       setData(responseData.data);

@@ -98,7 +98,8 @@ const AllOrders = () => {
                     onClose={ () => setOpenUpdateStatus(false) }
                     role={ updateOrdersDetails.status }
                     userId={ updateOrdersDetails.id }
-                    callFunc={ () => console.log("Static data refreshed") }
+                    callFunc={ () =>
+                        console.log("Static data refreshed") }
                 />
             ) }
         </div>

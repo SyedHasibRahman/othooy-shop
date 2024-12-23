@@ -17,6 +17,11 @@ import logo from "../assets/banner/logov2.png";
 // menu start
 export const MenuLinks = [
   {
+    id: 0,
+    name: "Home",
+    link: "/",
+  },
+  {
     id: 1,
     name: "About",
     link: "/about",
@@ -114,8 +119,11 @@ const Header = () => {
                 <li key={ id } className="py-4">
                   <NavLink
                     to={ link }
-                    activeclassname="text-primary border-b-2 border-primary"
-                    className="text-lg font-medium hover:text-primary py-2 transition-colors duration-500"
+                    className={ ({ isActive }) =>
+                      isActive
+                        ? "text-primary border-b-2 border-primary text-lg font-medium py-2 transition-colors duration-500"
+                        : "text-lg font-medium hover:text-primary py-2 transition-colors duration-500"
+                    }
                   >
                     { name }
                   </NavLink>
@@ -123,15 +131,19 @@ const Header = () => {
               )) }
               <li className="py-4">
                 <NavLink
-                  to={ 'http://othooy.com/' }
-                  activeclassname="text-primary border-b-2 border-primary"
-                  className="text-lg font-medium hover:text-primary py-2 transition-colors duration-500"
+                  to="http://othooy.com/"
+                  className={ ({ isActive }) =>
+                    isActive
+                      ? "text-primary border-b-2 border-primary text-lg font-medium py-2 transition-colors duration-500"
+                      : "text-lg font-medium hover:text-primary py-2 transition-colors duration-500"
+                  }
                 >
-                  { 'OTA' }
+                  OTA
                 </NavLink>
               </li>
             </ul>
           </nav>
+
           <div className="relative  flex justify-center">
             { user?._id && (
               <div
