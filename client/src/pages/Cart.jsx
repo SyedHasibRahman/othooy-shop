@@ -238,7 +238,7 @@ const Cart = () => {
               </div>
               <h2>Delivery Address:</h2>
               <form action="">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi veritatis quas totam vel, est amet quisquam consequuntur natus nam obcaecati corrupti dicta iure. Quisquam delectus id laboriosam consectetur ipsum tempore facere molestiae, nesciunt atque saepe sapiente illum accusantium, aliquam ducimus dolore error quia repudiandae aspernatur rem recusandae dolores minima. Assumenda?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, maiores natus a ducimus modi id neque temporibus reprehenderit at repellendus, cum excepturi odio, quibusdam error sunt saepe commodi rem voluptatum. Ipsa aperiam esse atque nam nihil sint dolor et explicabo magni non. Alias enim obcaecati dolorem, quis magnam at exercitationem!
               </form>
               <button className="bg-blue-600 p-2 text-white w-full mt-2">
                 PROCEED TO CHECKOUT ({ displayINRCurrency(totalPrice + shippingFee) })
