@@ -16,9 +16,10 @@ const AdminPanel = () => {
   }, [user]);
 
   return (
-    <div className="min-h-[calc(100vh-120px)] md:flex ">
+    // <div className="min-h-[calc(100vh-120px)] md:flex ">
+    <div className="min-h-[calc(100vh-120px)] md:flex">
       {/* <div className="min-h-[calc(100vh-120px)] md:flex hidden"> */ }
-      <aside className="bg-white min-h-full  w-full  max-w-60 customShadow pt-12 dark:bg-black dark:text-white ">
+      <aside className="bg-white min-h-full   max-w-[15%] customShadow pt-12 dark:bg-black dark:text-white ">
         <div className="h-32  flex justify-center items-center flex-col  ">
           <div className="text-5xl cursor-pointer relative flex justify-center">
             { user?.profilePic ? (
@@ -60,7 +61,7 @@ const AdminPanel = () => {
         </div>
       </aside>
 
-      <main className="w-full h-full p-2">
+      <main className="w-[85%] h-full p-2">
         <Outlet />
       </main>
     </div>

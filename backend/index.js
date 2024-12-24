@@ -5,6 +5,7 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const connectDB = require('./config/db')
 const router = require('./routes')
+const orderRoutes = require('./routes/orderRoutes')
 const { corsOptions } = require('./utils/corsOptions')
 require('dotenv').config()
 
@@ -17,6 +18,8 @@ app.use(cookieParser())
 app.use(cors(corsOptions));
 
 app.use('/api', router)
+
+app.use('/api', orderRoutes);
 
 const PORT = process.env.PORT || 8080;
 
