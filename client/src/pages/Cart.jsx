@@ -20,7 +20,7 @@ const Cart = () => {
     });
 
     const responseData = await response.json();
-    // console.log(responseData)
+    console.log(responseData)
 
     if (responseData.success) {
       setData(responseData.data);
@@ -107,8 +107,26 @@ const Cart = () => {
     (preve, curr) => preve + curr.quantity * curr?.productId?.sellingPrice,
     0
   );
+
+
+  // State to store location (Inside Dhaka or Outside Dhaka)
+  const [location, setLocation] = useState('insideDhaka'); // Default location
+  const [shippingFee, setShippingFee] = useState(80); // Default fee for inside Dhaka
+
+  // Function to handle location change
+  const handleLocationChange = (e) => {
+    const selectedLocation = e.target.value;
+    setLocation(selectedLocation);
+
+    // Dynamically update the shipping fee based on the location
+    if (selectedLocation === 'insideDhaka') {
+      setShippingFee(80); // Shipping fee for Inside Dhaka
+    } else if (selectedLocation === 'outsideDhaka') {
+      setShippingFee(150); // Shipping fee for Outside Dhaka
+    }
+  };
   return (
-    <div className="container mx-auto">
+    <div className="max-w-[1200px] mx-auto">
       <div className="text-center text-lg my-3">
         { data.length === 0 && !loading && (
           <p className="bg-white py-5">No Data</p>
@@ -197,17 +215,33 @@ const Cart = () => {
             <div className="h-36 bg-white">
               <h2 className="text-white bg-red-600 px-4 py-1">Summary</h2>
               <div className="flex items-center justify-between px-4 gap-2 font-medium text-lg text-slate-600">
-                <p>Quantity</p>
-                <p>{ totalQty }</p>
+                <p>Subtotal ({ totalQty } items)</p>
+                <p>{ totalPrice }</p>
               </div>
 
-              <div className="flex items-center justify-between px-4 gap-2 font-medium text-lg text-slate-600">
-                <p>Total Price</p>
-                <p>{ displayINRCurrency(totalPrice) }</p>
-              </div>
+              <div>
+                <div className="flex items-center justify-between px-4 gap-2 font-medium text-lg text-slate-600">
+                  <p>Shipping Fee</p>
+                  <p>{ shippingFee } BDT</p>
+                </div>
 
+                {/* Location selection */ }
+                <div className="mt-4">
+                  <label>
+                    Select Location:
+                    <select value={ location } onChange={ handleLocationChange }>
+                      <option value="insideDhaka">Inside Dhaka</option>
+                      <option value="outsideDhaka">Outside Dhaka</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+              <h2>Delivery Address:</h2>
+              <form action="">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, maiores natus a ducimus modi id neque temporibus reprehenderit at repellendus, cum excepturi odio, quibusdam error sunt saepe commodi rem voluptatum. Ipsa aperiam esse atque nam nihil sint dolor et explicabo magni non. Alias enim obcaecati dolorem, quis magnam at exercitationem!
+              </form>
               <button className="bg-blue-600 p-2 text-white w-full mt-2">
-                Payment
+                PROCEED TO CHECKOUT ({ displayINRCurrency(totalPrice + shippingFee) })
               </button>
             </div>
           ) }
